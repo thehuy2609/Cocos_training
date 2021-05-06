@@ -7,7 +7,7 @@ cc.Class({
         registerButton: cc.Button,
         notificationRichText: cc.RichText,
         userScrollView : cc.ScrollView,
-        _time: new Date().toLocaleTimeString(),
+        
     },
 
     onLoad(){
@@ -20,7 +20,8 @@ cc.Class({
     },
 
     showNotification(){
-        this.notificationRichText.string = "Chào mừng <color=#FF0000><u>" + this.usernameEditBox.string + "</></> đã gia nhập <color=#FFFF00><i>" + this._time + "</></>";        
+        let timeNow = new Date(Date.now()).toLocaleTimeString('it-IT');
+        this.notificationRichText.string = "Chào mừng <color=#FF0000><u>" + this.usernameEditBox.string + "</></> đã gia nhập <color=#FFFF00><i>" + timeNow + "</></>";        
     },
 
     addUserToScrollView(){
@@ -28,7 +29,7 @@ cc.Class({
     },
 
     start () {
-        
+        //cc.log(Date());
     },
 
     // update (dt) {},
