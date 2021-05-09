@@ -1,4 +1,4 @@
-const mEmitter = require('test4');
+const mEmitter = require('emitter');
 
 cc.Class({
     extends: cc.Component,
@@ -14,7 +14,7 @@ cc.Class({
     },
 
     start () {
-        cc.log(mEmitter.instance);
+        //cc.log(mEmitter.instance);
     },
 
     // update (dt) {},

@@ -1,4 +1,4 @@
-const mEmitter = require('test4');
+const mEmitter = require('emitter');
 cc.Class({
     extends: cc.Component,
 
