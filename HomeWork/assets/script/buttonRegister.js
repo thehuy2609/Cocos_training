@@ -6,24 +6,29 @@ cc.Class({
         passwordEditBox : cc.EditBox,
         registerButton: cc.Button,
         notificationRichText: cc.RichText,
-        notificationLabel: cc.Label,
+        FullListRichText: cc.RichText,
+        usernameLabel: cc.Label,
+        passwordLabel: cc.Label,
         userScrollView : cc.ScrollView,
+        userProgressBar : cc.ProgressBar,
         prefabItemScrollView: cc.Prefab,
         _validUsername: false,
         _validPassword: false,
+        _successAddScrollView: false,
         _content: null,
+        _firstYItem: 25,
     },
 
     onLoad(){
         this.registerButton.node.on('click', this.clickButtonRegister, this);
         this._content = this.userScrollView.node.getChildByName("view").getChildByName("content");
-        
     },
 
     clickButtonRegister(){
         if(this._validUsername === true && this._validPassword === true){
             this.showNotification();
             this.addUserToScrollView();
+            this.updateProgressBar();
         }
     },
 
@@ -37,17 +42,17 @@ cc.Class({
         
         if(this.usernameEditBox.string.length > 0){
             if(regUsername.test(this.usernameEditBox.string) === false){
-                this.notificationLabel.string = "Username tối đa 10 ký tự và không nhập ký tự đặc biệt!!!";
-                this.notificationLabel.node.active = true;
+                this.usernameLabel.string = "Username tối đa 10 ký tự và không nhập ký tự đặc biệt!!!";
+                this.usernameLabel.node.active = true;
                 this._validUsername = false;
             }else{
-                this.notificationLabel.string = "";
-                this.notificationLabel.node.active = false;
+                this.usernameLabel.string = "";
+                this.usernameLabel.node.active = false;
                 this._validUsername = true;
             }
         }else{
-            this.notificationLabel.string = "Nhập Username!!!";
-            this.notificationLabel.node.active = true;
+            this.usernameLabel.string = "Nhập Username!!!";
+            this.usernameLabel.node.active = true;
             this._validUsername = false;
         }
     },
@@ -56,33 +61,47 @@ cc.Class({
         let regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,12}$/;
         if(this.passwordEditBox.string.length > 0){
             if(regPassword.test(this.passwordEditBox.string) === false){
-                this.notificationLabel.string = "Password từ 6 - 12 ký tự và chứa ít nhất 1 chữ thường, 1 chữ in hoa và 1 số!!!";
-                this.notificationLabel.node.active = true;
+                this.passwordLabel.string = "Password từ 6 - 12 ký tự và chứa ít nhất 1 chữ thường, 1 chữ in hoa và 1 số!!!";
+                this.passwordLabel.node.active = true;
                 this._validPassword = false;
             }else{
-                this.notificationLabel.string = "";
-                this.notificationLabel.node.active = false;
+                this.passwordLabel.string = "";
+                this.passwordLabel.node.active = false;
                 this._validPassword = true;
             }
         }else{
-            this.notificationLabel.string = "Nhập Password!!!";
-            this.notificationLabel.node.active = true;
+            this.passwordLabel.string = "Nhập Password!!!";
+            this.passwordLabel.node.active = true;
             this._validPassword = false;
         }
         
     },
     
     addUserToScrollView(){
-        //this.prefabItemScrollView.string = this.usernameEditBox.string;
         let itemScrollView = cc.instantiate(this.prefabItemScrollView);
-        itemScrollView.string = this.usernameEditBox.string;
+        itemScrollView.getComponent(cc.Label).string = this.usernameEditBox.string;
         itemScrollView.parent = this._content;
-        this._content.children[this._content.children.length-1].string = this.usernameEditBox.string;
-        cc.log(this._content.children[0].string);
+        itemScrollView.y = this._firstYItem -= 25;
+        this._successAddScrollView = true;
+    },
+
+    updateProgressBar(){
+        if(this._successAddScrollView === true){
+            if(this.userProgressBar.progress < 1){
+                this.userProgressBar.progress += 0.01*(100/8);
+                this._successAddScrollView = false;
+            }
+            if(this.userProgressBar.progress === 1){
+                this.FullListRichText.node.active = true;
+                this.registerButton.interactable = false;
+            }
+            cc.log(this.userProgressBar.progress);
+        }
     },
 
     start () {
-        //cc.log(Date());
+        //this._firstYItem = this.userScrollView.node.height/2;
+        //cc.log(this._firstYItem);
     },
 
     // update (dt) {},
