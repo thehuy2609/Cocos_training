@@ -47,7 +47,8 @@
     },
     "_is3DNode": true,
     "groupIndex": 0,
-    "_id": "e5O4j4zrBFvaIIkPshFOWj"
+    "autoReleaseAssets": false,
+    "_id": "24c36fa9-cda8-4c2d-9ea0-fb0ddb6a7710"
   },
   {
     "__type__": "cc.Node",
@@ -152,7 +153,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 346.4101615137755
+      "z": 348.14221232134435
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -695,7 +696,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 150,
       "height": 40
     },
     "_anchorPoint": {
@@ -760,7 +761,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 150,
       "height": 40
     },
     "_anchorPoint": {
@@ -818,7 +819,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 150,
       "height": 40
     },
     "_anchorPoint": {
@@ -864,8 +865,8 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "Start",
-    "_N$string": "Start",
+    "_string": "Start Tween",
+    "_N$string": "Start Tween",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -1831,7 +1832,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 106.077,
       "z": 0
     },
     "_scale": {

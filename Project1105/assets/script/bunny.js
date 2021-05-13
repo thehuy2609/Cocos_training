@@ -10,7 +10,24 @@ cc.Class({
     },
 
     moveBunny(){
-        this.node.runAction(this._action);
+        // cc.tween(this.node)
+        //     .by(1, {angle: 360})
+        //     .call(()=>{
+        //         cc.log('Hello World!!!')
+        //     })
+        //     .by(1, {scale: 0.5})
+        //     .call(()=>{
+        //         cc.log('Hello World Again!!!')
+        //     })
+        //     .start()
+        let obj = { a : 0}
+        
+        cc.tween(obj)
+            .by(1, { a : 100})
+            .call(()=>{
+                cc.log(obj);
+            })
+            .start();
     },
 
     stopBunny(){
@@ -35,6 +52,7 @@ cc.Class({
     },
 
     start () {
+        
         let action = cc.moveTo(2, 200, 0);
         this._action = action.easing(cc.easeBounceOut(3,0));
         this._moveUpAction = cc.moveBy(2, 0, 100);
