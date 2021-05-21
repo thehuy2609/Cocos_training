@@ -436,7 +436,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -376.678,
-      "y": 137.287,
+      "y": 21.731,
       "z": 0
     },
     "_scale": {
@@ -511,18 +511,14 @@
     "_id": "21tPnmDhtEAo94rOrrmGYF"
   },
   {
-    "__type__": "7f409nYXjZDlYXllIWUoVoX",
+    "__type__": "ed9d4vxI0dFSLHI1Ayg8Ex8",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 9
     },
     "_enabled": true,
-    "_jumping": false,
-    "_movingLeft": false,
-    "_movingRight": false,
-    "_movingDown": false,
-    "_id": "576E+dYnxJ34qyANk9W0Tq"
+    "_id": "695dv1I05PEbMfslpj1spe"
   },
   {
     "__type__": "cc.Node",
